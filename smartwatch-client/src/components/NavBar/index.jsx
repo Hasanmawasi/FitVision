@@ -2,6 +2,7 @@ import React from 'react';
 import "./style.css";
 import { Link } from 'react-router-dom';
 import { Icon } from '@iconify/react/dist/iconify.js';
+import FileUploadModal from '../Modal';
 const NavBar = () => {
     return (
         <> 
@@ -9,7 +10,7 @@ const NavBar = () => {
             <h1>Smart Watch Activity</h1>
             <ul className='flex flex-row'>
                 <li><Link to="/dashboard">Dashboard</Link></li>
-                <li><Link to="/uploadCSV">Upload CSV</Link></li>
+                <li><FileUploadModal/></li>
                
             </ul>
             <div>

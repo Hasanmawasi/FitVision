@@ -5,6 +5,7 @@ import Signup from './pages/SignUp'
 import Dashboard from './pages/Dashboard'
 import NavBar from './components/NavBar'
 import { useLocation } from 'react-router-dom'
+import ProtectedRoute from './ProtectedRoute'
 
 function App() {
   const {pathname} = useLocation();
@@ -13,7 +14,9 @@ function App() {
     
     {pathname !== "/login" && pathname !== "/signup"  && <NavBar /> }
     <Routes>
-    <Route path='/dashboard' element={ <Dashboard /> } />
+      <Route element={<ProtectedRoute />} >
+      <Route path='/dashboard' element={ <Dashboard /> } />
+      </Route> 
     <Route path='/login' element={ <Login />} />
     <Route path='/signup' element={ <Signup />} />
     </Routes>
