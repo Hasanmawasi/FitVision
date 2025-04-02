@@ -6,11 +6,13 @@ import CaloriesBurnedChart from '../../components/ActivePieChart';
 import StepsBarChart from '../../components/BarChart';
 import { useSelector ,useDispatch } from 'react-redux'
 import { getData } from '../../features/KPI/KPISlice';
-
+import { getWeaklyData } from '../../features/StepsAndMin/StepsAndMinSlice';
 const Dashboard = () => {
     const dispatch = useDispatch();
     const kpiData = useSelector((state) => state.KPIData);
+    const StepsWeaklyData = useSelector((state)=> state.StepsAndMin.data)
     console.log(kpiData)
+    // console.log(StepsWeaklyData)
     const [kpis , setKpis] = useState({
         steps:0,
         distance:0,
@@ -28,6 +30,7 @@ const Dashboard = () => {
 
     useEffect(()=>{
         dispatch(getData())
+        dispatch(getWeaklyData());
     },[])
     return (
         <div>
@@ -63,7 +66,7 @@ const Dashboard = () => {
           </div>
         
         <div className='activity-chart'>
-            <ActivityChart />
+            <ActivityChart data={StepsWeaklyData}/>
         </div>
         <div className='activity-chart'>
         <h2>Weakly Steps</h2>
