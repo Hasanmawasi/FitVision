@@ -5,6 +5,7 @@ import KPI from '../../components/KPI';
 import CaloriesBurnedChart from '../../components/ActivePieChart';
 import StepsBarChart from '../../components/BarChart';
 import { useSelector } from 'react-redux'
+import FileUploadModal from '../../components/Modal';
 
 const Dashboard = () => {
     const kpiData = useSelector((state) => state.KPIData);
