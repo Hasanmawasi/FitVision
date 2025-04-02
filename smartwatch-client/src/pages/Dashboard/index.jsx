@@ -4,10 +4,11 @@ import ActivityChart from '../../components/LineChart';
 import KPI from '../../components/KPI';
 import CaloriesBurnedChart from '../../components/ActivePieChart';
 import StepsBarChart from '../../components/BarChart';
-import { useSelector } from 'react-redux'
-import FileUploadModal from '../../components/Modal';
+import { useSelector ,useDispatch } from 'react-redux'
+import { getData } from '../../features/KPI/KPISlice';
 
 const Dashboard = () => {
+    const dispatch = useDispatch();
     const kpiData = useSelector((state) => state.KPIData);
     console.log(kpiData)
     const [kpis , setKpis] = useState({
@@ -24,6 +25,10 @@ const Dashboard = () => {
             calories: kpiData?.calories 
         });
     }, [kpiData]);
+
+    useEffect(()=>{
+        dispatch(getData())
+    },[])
     return (
         <div>
             <div className="kpis flex flex-row justify-center ">
