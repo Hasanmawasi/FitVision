@@ -9,15 +9,15 @@ import {
     Legend
   } from "recharts";
   
-  const data = [
-    { date: "Mon", steps: 1000, activeMinutes: 10 },
-    { date: "Tue", steps: 7000, activeMinutes: 20 },
-    { date: "Wed", steps: 6000, activeMinutes: 15 },
-    { date: "Thu", steps: 9000, activeMinutes: 30 },
-    { date: "Fri", steps: 10000, activeMinutes: 45 },
-  ];
+  // const data = [
+  //   { date: "Mon", steps: 1000, activeMinutes: 10 },
+  //   { date: "Tue", steps: 7000, activeMinutes: 20 },
+  //   { date: "Wed", steps: 6000, activeMinutes: 15 },
+  //   { date: "Thu", steps: 9000, activeMinutes: 30 },
+  //   { date: "Fri", steps: 10000, activeMinutes: 45 },
+  // ];
   
-  const ActivityChart = () => (
+  const ActivityChart = ({data}) => (
     <section aria-labelledby="activity-chart">
      <h2 id="activity-chart">Activity Chart: Steps & Active Minutes</h2>
     <ResponsiveContainer width="100%" height={400}>
